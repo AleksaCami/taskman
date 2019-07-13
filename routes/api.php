@@ -17,6 +17,9 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
+
+// REST API rute
+
 Route::get('projects', 'ProjectController@index');
 Route::post('projects', 'ProjectController@store');
 Route::get('projects/{id}', 'ProjectController@show');

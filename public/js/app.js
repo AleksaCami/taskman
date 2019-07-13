@@ -65709,6 +65709,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+// Header komponenta u kojoj prikazujemo samo naslov sa linkom ka pocetnoj strani
 
 
 
@@ -65721,7 +65722,8 @@ var Header = function Header() {
     className: "navbar-brand",
     to: "/"
   }, "Tasksman")));
-};
+}; // Eksport promenljive Header
+
 
 /* harmony default export */ __webpack_exports__["default"] = (Header);
 
@@ -65909,6 +65911,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+// Komponenta u kojoj izlistavamo sve projekte
+// axios - biblioteka koja mnogo olaksava komunikaciju sa bazom, get, put, delete, post requestovi
+// Vraca promise!!!
 
 
 
@@ -65923,12 +65928,17 @@ function (_Component) {
 
     _classCallCheck(this, ProjectsList);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(ProjectsList).call(this));
+    // super() - JS govno koje morate da pozovete jer se referencira na parent constructor, u ovom slucaju na Component constructor
+    // Ako ga ne pozovete, nece vam dozvoliti da koristite this unutar konstruktora
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ProjectsList).call(this)); // inicijalizujemo trenutno stanje podataka sa kojima zelimo da radimo unutar komponente
+
     _this.state = {
       projects: []
     };
     return _this;
-  }
+  } // Default React metoda, pokrece se odmah nakon sto se komponenta inicijalizuje
+  // Nalik document.ready u vanilla JS
+
 
   _createClass(ProjectsList, [{
     key: "componentDidMount",
@@ -65969,7 +65979,7 @@ function (_Component) {
           key: project.id
         }, project.name, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
           className: "badge badge-primary badge-pill"
-        }, project.tasks_count));
+        }, project.id));
       })))))));
     }
   }]);

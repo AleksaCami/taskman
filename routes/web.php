@@ -15,4 +15,6 @@
 //    return view('welcome');
 //});
 
+
+// Wildcard ruta, ovde se renderuje React aplikacija pod jednim divom, u jednom blade.php fajlu
 Route::view('/{path?}', 'app');
